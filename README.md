@@ -1,3 +1,14 @@
+
+## wsltty-patch
+
+wsltty personal patched version
+
+- (mintty) keep home environment variable (#1)
+
+
+
+## wsltty
+
 Mintty as a terminal for WSL (Windows Subsystem for Linux).
 
 <img align=right src=wsltty.png>
