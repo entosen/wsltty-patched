@@ -179,6 +179,7 @@ wslbridge-backend:	wslbridge-source
 mintty-get:
 	$(wgeto) https://github.com/mintty/mintty/archive/$(minttyver).zip -o mintty-$(minttyver).zip
 	unzip -o mintty-$(minttyver).zip
+	cd mintty-$(minttyver) && cat ../patch/mintty/*.patch | patch -p1
 	cp mintty-$(minttyver)/icon/terminal.ico mintty.ico
 
 wslbuild=LDFLAGS="-static -static-libgcc -s"
