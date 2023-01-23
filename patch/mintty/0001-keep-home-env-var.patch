@@ -1,0 +1,19 @@
+--- mintty-3.6.1.orig/src/winmain.c	2022-04-24 23:35:43.000000000 +0900
++++ mintty-3.6.1/src/winmain.c	2023-01-22 23:54:31.123184900 +0900
+@@ -6179,9 +6179,13 @@
+       printf("<%s>\n", *new_argv++);
+ #endif
+ 
+-    // prevent HOME from being propagated back to Windows applications 
+-    // if called from WSL (mintty/wsltty#76)
+-    unsetenv("HOME");
++    // HOME env variable is drop when invoking windows exe from WSL · Issue #324 · mintty/wsltty
++    // https://github.com/mintty/wsltty/issues/324
++    // ----
++    // // prevent HOME from being propagated back to Windows applications 
++    // // if called from WSL (mintty/wsltty#76)
++    // unsetenv("HOME");
++    // ----
+   }
+   else if (*argv && (argv[1] || strcmp(*argv, "-")))  // argv is a command
+     cmd = *argv;
